@@ -47,7 +47,7 @@ function renderMovies(movies = []) {
         acc[curr.title] = true;
         return acc;
     },{});
-
+    pagination.classList.remove('hide');
 
     movies.forEach((eMovie) => {
         const { poster_path, title, vote_average, vote_count } = eMovie;
@@ -293,6 +293,7 @@ pagination = document.querySelector('.pagination');
 function renderFavMovies() {
     movieList.innerHTML = "";
     pagination.innerHTML = "";
+    pagination.classList.add('hide');
 
     const favMovies = getFavMoviesFromLocalStorage();
     favMovies.map((eFavMovie) =>{
